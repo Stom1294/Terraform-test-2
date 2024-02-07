@@ -20,7 +20,7 @@ resource "azurerm_linux_virtual_machine" "vm01"{
       os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
-    disk_size_gb = 100
+    disk_size_gb = 50
   }
 
   source_image_reference {
