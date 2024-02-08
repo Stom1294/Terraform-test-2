@@ -3,8 +3,9 @@ resource "azurerm_container_group" "azure-aci-mysql" {
   location = azurerm_resource_group.azurerg-wcus01.location
   name = "ACI-MYSQL"
   os_type = "Linux"
+  ip_address_type = "Public"
 
-  Container {
+   container {
     name = "cbtdatabase"
     image = "docker.io/mysql:8.0.31"
     cpu = 0.5
