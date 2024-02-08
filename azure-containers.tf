@@ -12,7 +12,7 @@ resource "azurerm_container_group" "container-ngnix" {
     memory = "1.5"
 
    ports {
-      port     = 443
+      port     = 80
       protocol = "TCP"
     }
   }
