@@ -10,9 +10,10 @@ resource "azurerm_container_group" "container-ngnix" {
     image  = "docker.io/nginx:1.23"
     cpu    = "0.5"
     memory = "1.5"
-  }
+
    ports {
       port     = 443
       protocol = "TCP"
     }
+  }
 }
