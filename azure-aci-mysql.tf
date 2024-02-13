@@ -1,7 +1,7 @@
 resource "azurerm_container_group" "azure-aci-mysql" {
   depends_on = [ 
     azurerm_storage_account.azure-storage-containers,
-    azurermazurerm_storage_share.azure-file-share
+    azurerm_storage_share.azure-file-share
    ]
   resource_group_name = azurerm_resource_group.azurerg-wcus01.name
   location = azurerm_resource_group.azurerg-wcus01.location
