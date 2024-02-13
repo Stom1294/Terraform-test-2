@@ -28,7 +28,7 @@ resource "azurerm_container_group" "azure-aci-mysql" {
     }
     volume {
       name = "mysqldata"
-      mount_path = "var/lib/sql"
+      mount_path = "/var/lib/sql"
       storage_account_name = azurerm_storage_account.azure-storage-containers.name
       share_name = azurerm_storage_share.azure-file-share.name
       storage_account_key = azurerm_storage_account.azure-storage-containers.primary_access_key
