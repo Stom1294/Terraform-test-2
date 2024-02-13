@@ -1,4 +1,8 @@
 resource "azurerm_container_group" "azure-aci-mysql" {
+  depends_on = [ 
+    azurerm_storage_account.azure-storage-containers,
+    azurermazurerm_storage_share.azure-file-share
+   ]
   resource_group_name = azurerm_resource_group.azurerg-wcus01.name
   location = azurerm_resource_group.azurerg-wcus01.location
   name = "ACI-MYSQL"
@@ -21,6 +25,13 @@ resource "azurerm_container_group" "azure-aci-mysql" {
     ports {
       port     = 3306
       protocol = "TCP"
+    }
+    volume {
+      name = "mysqldata"
+      mount_path = "var/lib/sql"
+      storage_account_name = azurerm_storage_account.azure-storage-containers.name
+      share_name = azurerm_storage_share.azure-file-share.name
+      storage_account_key = azurerm_storage_account.azure-storage-containers.primary_access_key
     }
 
   }
